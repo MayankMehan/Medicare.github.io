@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediCare Clinic</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  color:white;
+  background:#071b24;
+}
+
+.custom-navbar{
+  padding:14px 0;
+  transition:0.4s;
+  z-index:999;
+}
+
+.navbar-green{
+  background:linear-gradient(to right,#071b24,#063b37);
+}
+
+.navbar-white{
+  background:white;
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+
+.brand-box{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:#20d7c7;
+  margin-right:12px;
+}
+
+.navbar-white .brand-box{
+  background:#eef7f5;
+}
+
+.navbar-brand{
+  font-size:28px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  color:white;
+}
+
+.navbar-white .navbar-brand{
+  color:#111827;
+}
+
+.nav-link{
+  color:rgba(255,255,255,0.80);
+  margin:0 6px;
+  font-weight:500;
+  transition:0.3s;
+  padding:10px 16px !important;
+  border-radius:12px;
+  font-size:15px;
+}
+
+.navbar-white .nav-link{
+  color:#4b5563;
+}
+
+.nav-link:hover{
+  color:#20d7c7;
+}
+
+.active-nav{
+  background:rgba(255,255,255,0.10);
+  color:#24e7d3 !important;
+}
+
+.navbar-white .active-nav{
+  background:#e8faf7;
+  color:#13b9a8 !important;
+}
+
+.appointment-btn{
+  background:#11c8b7;
+  border:none;
+  padding:12px 22px;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+}
+
+.appointment-btn:hover{
+  transform:translateY(-3px);
+  background:#17dac8;
+}
+
+.hero-section{
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  background:
+  radial-gradient(circle at top right, rgba(0,255,200,0.15), transparent 35%),
+  radial-gradient(circle at center, rgba(0,255,170,0.12), transparent 30%),
+  linear-gradient(to right, #071b24, #052f2d);
+}
+
+.hero-section::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:40px 40px;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+.container-custom{
+  position:relative;
+  z-index:2;
+}
+
+.hero-content{
+  padding-top:140px;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid rgba(0,255,220,0.3);
+  padding:10px 18px;
+  border-radius:50px;
+  color:#38e9d6;
+  font-size:15px;
+  background:rgba(0,255,200,0.05);
+  margin-bottom:28px;
+}
+
+.tag-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#25e7d2;
+}
+
+.hero-title{
+  font-size:68px;
+  line-height:1.1;
+  font-weight:800;
+  max-width:760px;
+}
+
+.gradient-text{
+  color:#26e7d4;
+}
+
+.hero-description{
+  margin-top:22px;
+  font-size:20px;
+  line-height:1.7;
+  color:rgba(255,255,255,0.75);
+  max-width:760px;
+}
+
+.hero-buttons{
+  margin-top:38px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.main-btn{
+  background:#11c8b7;
+  color:white;
+  border:none;
+  padding:18px 32px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.main-btn:hover{
+  transform:translateY(-5px);
+  background:#18d7c6;
+}
+
+.secondary-btn{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.15);
+  color:white;
+  padding:18px 32px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:600;
+  transition:0.3s;
+  backdrop-filter:blur(8px);
+}
+
+.secondary-btn:hover{
+  background:rgba(255,255,255,0.12);
+  transform:translateY(-5px);
+}
+
+.info-section{
+  margin-top:70px;
+  padding-bottom:60px;
+}
+
+.info-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;
+  padding:30px;
+  transition:0.4s;
+  height:100%;
+  backdrop-filter:blur(10px);
+}
+
+.info-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,255,220,0.25);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.info-icon{
+  font-size:38px;
+  color:#22e7d3;
+  margin-bottom:16px;
+}
+
+.info-card h2{
+  font-size:40px;
+  font-weight:700;
+}
+
+.info-card p{
+  font-size:18px;
+  color:rgba(255,255,255,0.6);
+  margin-top:8px;
+}
+
+.about-section{
+  background:#ffffff;
+  padding:90px 0;
+  color:#111827;
+}
+
+.about-tag{
+  color:#11b6a5;
+  font-size:16px;
+  letter-spacing:2px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.about-title{
+  font-size:52px;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:24px;
+}
+
+.about-title span{
+  color:#19c7b5;
+}
+
+.about-description{
+  font-size:18px;
+  line-height:1.8;
+  color:#5b6470;
+  margin-bottom:22px;
+}
+
+.feature-box{
+  margin-top:28px;
+}
+
+.feature-icon{
+  width:58px;
+  height:58px;
+  border-radius:16px;
+  background:#edf9f7;
+  color:#11c8b7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.feature-box h4{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.feature-box p{
+  color:#667085;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.about-image-wrapper{
+  position:relative;
+}
+
+.about-image{
+  width:100%;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  z-index:2;
+}
+
+.about-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.floating-box{
+  position:absolute;
+  width:100px;
+  height:100px;
+  border-radius:24px;
+  background:#dffaf4;
+  z-index:1;
+}
+
+.box1{
+  top:-18px;
+  right:-18px;
+}
+
+.box2{
+  bottom:-18px;
+  left:-18px;
+}
+
+.experience-box{
+  position:absolute;
+  bottom:24px;
+  left:24px;
+  z-index:3;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(8px);
+  padding:18px 22px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.experience-circle{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:#18d7c6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  font-weight:700;
+  color:white;
+}
+
+.experience-box h3{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.experience-box p{
+  color:#d1d5db;
+  font-size:15px;
+}
+
+.section-title h5{
+  color:#11b6a5;
+  letter-spacing:2px;
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.section-title h2{
+  font-size:52px;
+  font-weight:800;
+  color:#111827;
+}
+
+.section-title h2 span{
+  color:#18c9b7;
+}
+
+.section-title p{
+  max-width:700px;
+  margin:auto;
+  margin-top:16px;
+  color:#667085;
+  font-size:18px;
+  line-height:1.7;
+}
+
+.team-section{
+  background:#ffffff;
+  padding:90px 0;
+}
+
+.doctor-card{
+  background:#ffffff;
+  border-radius:24px;
+  overflow:hidden;
+  transition:0.4s;
+  border:1px solid #edf1f5;
+  height:100%;
+}
+
+.doctor-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.doctor-image{
+  height:280px;
+  overflow:hidden;
+}
+
+.doctor-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+.doctor-card:hover img{
+  transform:scale(1.08);
+}
+
+.doctor-content{
+  padding:24px;
+}
+
+.doctor-content h3{
+  font-size:26px;
+  font-weight:700;
+  color:#111827;
+}
+
+.doctor-content h4{
+  font-size:18px;
+  color:#14b8a6;
+  margin-top:8px;
+  margin-bottom:18px;
+}
+
+.doctor-info{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#667085;
+  font-size:16px;
+}
+
+.experience{
+  color:#14b8a6;
+  font-weight:600;
+}
+
+.services-section{
+  background:#f8fbfb;
+  padding:90px 0;
+}
+
+.service-card{
+  background:white;
+  border-radius:24px;
+  padding:32px;
+  height:100%;
+  border:1px solid #edf1f5;
+  transition:0.4s;
+}
+
+.service-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.service-icon{
+  width:68px;
+  height:68px;
+  border-radius:18px;
+  background:#ecfbf8;
+  color:#16b9a8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:24px;
+}
+
+.service-card h3{
+  font-size:28px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:16px;
+}
+
+.service-card p{
+  font-size:17px;
+  line-height:1.8;
+  color:#667085;
+}
+
+.service-card ul{
+  list-style:none;
+  padding:0;
+  margin-top:22px;
+}
+
+.service-card ul li{
+  margin-bottom:12px;
+  font-size:16px;
+  color:#667085;
+}
+
+.service-card ul li i{
+  color:#18c9b7;
+  margin-right:10px;
+}
+
+.consultation-section{
+  background:#ffffff;
+  padding:90px 0;
+}
+
+.consultation-box{
+  background:linear-gradient(135deg,#0e8e7d,#047857);
+  border-radius:32px;
+  padding:70px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.consultation-content{
+  position:relative;
+  z-index:2;
+}
+
+.consultation-content h2{
+  font-size:52px;
+  font-weight:800;
+  color:white;
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.consultation-content p{
+  font-size:20px;
+  line-height:1.8;
+  color:rgba(255,255,255,0.88);
+  max-width:760px;
+  margin:auto;
+}
+
+.referral-btn{
+  margin-top:36px;
+  background:white;
+  color:#047857;
+  border:none;
+  padding:18px 36px;
+  border-radius:18px;
+  font-size:18px;
+  font-weight:700;
+  transition:0.4s;
+}
+
+.referral-btn:hover{
+  transform:translateY(-6px);
+  background:#f3f4f6;
+}
+
+.contact-section{
+  background:#f8fbfb;
+  padding:90px 0;
+}
+
+.contact-wrapper{
+  margin-top:50px;
+}
+
+.contact-card{
+  background:white;
+  border:1px solid #edf1f5;
+  border-radius:20px;
+  padding:22px;
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:20px;
+  transition:0.4s;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.06);
+}
+
+.contact-icon{
+  width:54px;
+  height:54px;
+  min-width:54px;
+  border-radius:16px;
+  background:#ecfbf8;
+  color:#13b9a8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.contact-card h4{
+  font-size:20px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:8px;
+}
+
+.contact-card p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+  color:#667085;
+}
+
+.contact-form-box{
+  background:white;
+  border:1px solid #edf1f5;
+  border-radius:24px;
+  padding:32px;
+  height:100%;
+}
+
+.contact-form-box h3{
+  font-size:34px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:28px;
+}
+
+.contact-form .form-label{
+  color:#374151;
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.contact-form .form-control{
+  border:1px solid #d7dde5;
+  border-radius:14px;
+  padding:15px 18px;
+  font-size:16px;
+  box-shadow:none;
+  transition:0.3s;
+}
+
+.contact-form .form-control:focus{
+  border-color:#14b8a6;
+  box-shadow:0 0 0 4px rgba(20,184,166,0.12);
+}
+
+.contact-form textarea{
+  resize:none;
+}
+
+.send-btn{
+  width:100%;
+  margin-top:16px;
+  border:none;
+  background:#11998e;
+  color:white;
+  font-size:18px;
+  font-weight:600;
+  padding:16px;
+  border-radius:16px;
+  transition:0.4s;
+}
+
+.send-btn:hover{
+  transform:translateY(-4px);
+  background:#14b8a6;
+}
+
+.map-box{
+  margin-top:20px;
+  border-radius:20px;
+  overflow:hidden;
+  height:220px;
+  border:1px solid #edf1f5;
+}
+
+.map-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.footer-section{
+  background:linear-gradient(to right,#07142b,#041225);
+  padding:26px 0;
+}
+
+.footer-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:white;
+  text-decoration:none;
+}
+
+.footer-brand:hover{
+  color:white;
+}
+
+.footer-brand-box{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:rgba(0,255,220,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#19d7c5;
+  font-size:20px;
+}
+
+.footer-brand h3{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+}
+
+.footer-copy{
+  color:rgba(255,255,255,0.70);
+  font-size:16px;
+  text-align:center;
+}
+
+.footer-links{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.footer-links a{
+  color:rgba(255,255,255,0.78);
+  text-decoration:none;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  color:#18d7c6;
+}
+
+@media(max-width:1200px){
+
+  .hero-title{
+    font-size:56px;
+  }
+
+  .about-title,
+  .section-title h2,
+  .consultation-content h2{
+    font-size:46px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .custom-navbar{
+    padding:12px 0;
+  }
+
+  .hero-content{
+    padding-top:120px;
+  }
+
+  .hero-title{
+    font-size:42px;
+  }
+
+  .hero-description{
+    font-size:17px;
+  }
+
+  .main-btn,
+  .secondary-btn{
+    width:100%;
+    font-size:17px;
+    text-align:center;
+  }
+
+  .about-title,
+  .section-title h2,
+  .consultation-content h2{
+    font-size:34px;
+  }
+
+  .about-description,
+  .section-title p,
+  .consultation-content p{
+    font-size:16px;
+  }
+
+  .doctor-content h3{
+    font-size:24px;
+  }
+
+  .doctor-info{
+    font-size:15px;
+  }
+
+  .service-card h3{
+    font-size:24px;
+  }
+
+  .service-card p{
+    font-size:16px;
+  }
+
+  .experience-box{
+    padding:14px 16px;
+  }
+
+  .experience-box h3{
+    font-size:20px;
+  }
+
+  .experience-circle{
+    width:58px;
+    height:58px;
+    font-size:20px;
+  }
+
+  .contact-form-box{
+    padding:24px;
+  }
+
+  .footer-wrapper{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .footer-links{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+}
+
+.map-box{
+  position:relative;
+}
+
+.map-btn-box{
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  z-index:5;
+}
+
+.live-route-btn{
+  border:none;
+  background:#11998e;
+  color:white;
+  padding:12px 18px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.18);
+  transition:0.3s;
+}
+
+.live-route-btn:hover{
+  transform:translateY(-3px);
+  background:#14b8a6;
+}
+
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top custom-navbar navbar-green" id="navbar">
+
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        <div class="brand-box">
+          <i class="bi bi-heart"></i>
+        </div>
+        MediCare
+      </a>
+
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+        <ul class="navbar-nav align-items-lg-center">
+
+          <li class="nav-item">
+            <a class="nav-link active-nav" href="#home">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+
+          <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+            <a href="#contact" class="appointment-btn text-decoration-none d-inline-block">
+              Book Appointment
+              </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <section class="hero-section" id="home">
+
+    <div class="container container-custom">
+
+      <div class="hero-content">
+
+        <div class="tag">
+          <div class="tag-dot"></div>
+          Now Accepting New Patients
+        </div>
+
+        <h1 class="hero-title">
+          Your Health,
+          <span class="gradient-text">Our Priority</span>
+        </h1>
+
+        <p class="hero-description">
+          At MediCare Clinic, we combine compassionate care with cutting-edge
+          medical expertise. Our dedicated team is here to guide you on your
+          journey to better health.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="#contact" class="main-btn text-decoration-none d-inline-block">
+            Schedule a Visit
+            </a>
+
+          <a href="#services" class="secondary-btn text-decoration-none d-inline-block">
+          Our Services
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="row info-section g-4">
+
+        <div class="col-lg-4">
+
+          <div class="info-card">
+
+            <div class="info-icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+
+            <h2>15+ Years</h2>
+
+            <p>of excellence</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="info-card">
+
+            <div class="info-icon">
+              <i class="bi bi-people"></i>
+            </div>
+
+            <h2>10,000+</h2>
+
+            <p>treated annually</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+          <div class="info-card">
+
+            <div class="info-icon">
+              <i class="bi bi-clock"></i>
+            </div>
+
+            <h2>24/7</h2>
+
+            <p>emergency support</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="about-section" id="about">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+          <div class="about-tag">
+            ABOUT OUR CLINIC
+          </div>
+
+          <h2 class="about-title">
+            Dedicated to Your
+            <span>Well-Being</span>
+          </h2>
+
+          <p class="about-description">
+            Founded in 2009, MediCare Clinic has been a cornerstone of
+            community healthcare for over 15 years. Our state-of-the-art
+            facility combines modern technology with a warm, welcoming
+            environment where patients feel truly cared for.
+          </p>
+
+          <p class="about-description">
+            We believe healthcare should be accessible, transparent,
+            and centered around you. From routine check-ups to
+            specialized treatments, our multidisciplinary team works
+            collaboratively to deliver the best outcomes.
+          </p>
+
+          <div class="row">
+
+            <div class="col-md-6">
+
+              <div class="feature-box">
+
+                <div class="feature-icon">
+                  <i class="bi bi-heart-pulse"></i>
+                </div>
+
+                <h4>Compassionate Care</h4>
+
+                <p>
+                  Every patient is treated with dignity,
+                  empathy, and personalized attention.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="feature-box">
+
+                <div class="feature-icon">
+                  <i class="bi bi-award"></i>
+                </div>
+
+                <h4>Clinical Excellence</h4>
+
+                <p>
+                  Board-certified physicians delivering
+                  evidence-based medical solutions.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="feature-box">
+
+                <div class="feature-icon">
+                  <i class="bi bi-book"></i>
+                </div>
+
+                <h4>Continuous Learning</h4>
+
+                <p>
+                  Our team stays at the forefront of
+                  medical advancements and research.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="feature-box">
+
+                <div class="feature-icon">
+                  <i class="bi bi-stethoscope"></i>
+                </div>
+
+                <h4>Patient-Centered</h4>
+
+                <p>
+                  Treatment plans tailored to your
+                  unique health needs and lifestyle.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="about-image-wrapper">
+
+            <div class="floating-box box1"></div>
+            <div class="floating-box box2"></div>
+
+            <div class="about-image">
+
+              <img src="about clinic.jpeg">
+
+            </div>
+
+            <div class="experience-box">
+
+              <div class="experience-circle">
+                15+
+              </div>
+
+              <div>
+                <h3>Years of Service</h3>
+                <p>Serving our community since 2009</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<section class="team-section" id="team">
+
+  <div class="container">
+
+
+    <div class="section-title text-center">
+
+      <h5>OUR TEAM</h5>
+
+      <h2>
+        Meet Our
+        <span>Specialists</span>
+      </h2>
+
+      <p>
+        Our experienced medical professionals are committed
+        to providing exceptional care tailored to your needs.
+      </p>
+
+    </div>
+
+
+    <div class="row g-4 mt-5">
+
+
+      <div class="col-lg-3 col-md-6">
+
+        <div class="doctor-card">
+
+          <div class="doctor-image">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="doctor-content">
+
+            <h3>Dr. Sarah Mitchell</h3>
+
+            <h4>Chief Medical Officer</h4>
+
+            <div class="doctor-info">
+
+              <span>Internal Medicine</span>
+
+              <span class="experience">18 years</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+
+        <div class="doctor-card">
+
+          <div class="doctor-image">
+            <img src="Dr. Olivia Carter.jpg" alt="">
+          </div>
+
+          <div class="doctor-content">
+
+            <h3>Dr. Olivia Carter</h3>
+
+            <h4>Senior Physician</h4>
+
+            <div class="doctor-info">
+
+              <span>Family Medicine</span>
+
+              <span class="experience">14 years</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-3 col-md-6">
+
+        <div class="doctor-card">
+
+          <div class="doctor-image">
+            <img src="Dr. Emily.jpg" alt="">
+          </div>
+
+          <div class="doctor-content">
+
+            <h3>Dr. Emily Chen</h3>
+
+            <h4>Pediatric Specialist</h4>
+
+            <div class="doctor-info">
+
+              <span>Pediatrics</span>
+
+              <span class="experience">12 years</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-3 col-md-6">
+
+        <div class="doctor-card">
+
+          <div class="doctor-image">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200&auto=format&fit=crop" alt="">
+          </div>
+
+          <div class="doctor-content">
+
+            <h3>Dr. Michael Okafor</h3>
+
+            <h4>Orthopedic Surgeon</h4>
+
+            <div class="doctor-info">
+
+              <span>Orthopedics</span>
+
+              <span class="experience">16 years</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="services-section" id="services">
+
+  <div class="container">
+
+
+    <div class="section-title text-center">
+
+      <h5>WHAT WE OFFER</h5>
+
+      <h2>
+        Our
+        <span>Services</span>
+      </h2>
+
+      <p>
+        From routine wellness visits to specialized treatments,
+        we provide a full spectrum of medical services under one roof.
+      </p>
+
+    </div>
+
+
+    <div class="row g-4 mt-5">
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
+
+          <h3>General Medicine</h3>
+
+          <p>
+            Comprehensive health assessments, preventive care,
+            and management of chronic conditions.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> Annual check-ups</li>
+            <li><i class="bi bi-check-circle"></i> Chronic disease management</li>
+            <li><i class="bi bi-check-circle"></i> Preventive screenings</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-emoji-smile"></i>
+          </div>
+
+          <h3>Pediatrics</h3>
+
+          <p>
+            Specialized care for infants, children,
+            and adolescents in a child-friendly environment.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> Well-child visits</li>
+            <li><i class="bi bi-check-circle"></i> Vaccinations</li>
+            <li><i class="bi bi-check-circle"></i> Growth monitoring</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-bandaid"></i>
+          </div>
+
+          <h3>Orthopedics</h3>
+
+          <p>
+            Expert diagnosis and treatment for musculoskeletal
+            injuries and conditions.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> Fracture care</li>
+            <li><i class="bi bi-check-circle"></i> Joint replacement</li>
+            <li><i class="bi bi-check-circle"></i> Sports medicine</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-activity"></i>
+          </div>
+
+          <h3>Neurology</h3>
+
+          <p>
+            Advanced neurological evaluations and
+            personalized treatment plans.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> Headache management</li>
+            <li><i class="bi bi-check-circle"></i> Epilepsy care</li>
+            <li><i class="bi bi-check-circle"></i> Nerve conduction studies</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-eye"></i>
+          </div>
+
+          <h3>Ophthalmology</h3>
+
+          <p>
+            Complete eye care from routine exams
+            to advanced surgical procedures.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> Vision testing</li>
+            <li><i class="bi bi-check-circle"></i> Cataract surgery</li>
+            <li><i class="bi bi-check-circle"></i> Glaucoma treatment</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            <i class="bi bi-heart-pulse-fill"></i>
+          </div>
+
+          <h3>Cardiology</h3>
+
+          <p>
+            State-of-the-art cardiac diagnostics and
+            cardiovascular health management.
+          </p>
+
+          <ul>
+
+            <li><i class="bi bi-check-circle"></i> ECG & Echocardiography</li>
+            <li><i class="bi bi-check-circle"></i> Heart failure care</li>
+            <li><i class="bi bi-check-circle"></i> Risk assessment</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="consultation-section">
+
+  <div class="container">
+
+    <div class="consultation-box">
+
+      <div class="consultation-content">
+
+        <h2>
+          Need a Specialist Consultation?
+        </h2>
+
+        <p>
+          Our referral coordinators can connect you with the right
+          specialist and ensure a seamless care experience.
+        </p>
+
+        <button class="referral-btn">
+          Get a Referral
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact-section" id="contact">
+
+  <div class="container">
+
+
+    <div class="section-title text-center">
+
+      <h5>GET IN TOUCH</h5>
+
+      <h2>
+        Contact
+        <span>Us</span>
+      </h2>
+
+      <p>
+        Ready to take the next step? Reach out to schedule
+        an appointment or ask any questions. We are here to help.
+      </p>
+
+    </div>
+
+
+
+    <div class="row contact-wrapper g-4">
+
+
+      <div class="col-lg-5">
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+
+          <div>
+
+            <h4>Address</h4>
+
+            <p>
+              Lord's Pathology, Home Collection for Blood Test<br>
+              Mumbai, 400037
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            <i class="bi bi-telephone"></i>
+          </div>
+
+          <div>
+
+            <h4>Phone</h4>
+
+            <p>(91) 771-765-1037</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            <i class="bi bi-envelope"></i>
+          </div>
+
+          <div>
+
+            <h4>Email</h4>
+
+            <p>info@medicare-clinic.com</p>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-card">
+
+          <div class="contact-icon">
+            <i class="bi bi-clock"></i>
+          </div>
+
+          <div>
+
+            <h4>Hours</h4>
+
+            <p>
+              Mon-Fri: 8:00 AM - 6:00 PM<br>
+              Sat: 9:00 AM - 2:00 PM<br>
+              Sun: Emergency Only
+            </p>
+
+          </div>
+
+        </div>
+
+
+<div class="map-box">
+
+  <iframe
+    src="https://www.google.com/maps?q=19.0760,72.8777&z=14&output=embed"
+    allowfullscreen
+    loading="lazy">
+  </iframe>
+
+  <div class="map-btn-box">
+
+    <button class="live-route-btn" onclick="openDirections()">
+      <i class="bi bi-geo-alt-fill"></i>
+      Live Directions
+    </button>
+
+  </div>
+
+</div>
+
+      </div>
+
+      <div class="col-lg-7">
+
+        <div class="contact-form-box">
+
+          <h3>Send Us a Message</h3>
+
+          <form class="contact-form">
+
+            <div class="row">
+
+              <div class="col-md-6 mb-4">
+
+                <label class="form-label">Full Name</label>
+
+                <input type="text" class="form-control" placeholder="John Doe">
+
+              </div>
+
+              <div class="col-md-6 mb-4">
+
+                <label class="form-label">Email</label>
+
+                <input type="email" class="form-control" placeholder="john@example.com">
+
+              </div>
+
+            </div>
+
+            <div class="mb-4">
+
+              <label class="form-label">Phone Number</label>
+
+              <input type="text" class="form-control" placeholder="(91) 756-483-9283">
+
+            </div>
+
+            <div class="mb-4">
+
+              <label class="form-label">Message</label>
+
+              <textarea class="form-control" rows="6" placeholder="How can we help you?"></textarea>
+
+            </div>
+
+            <button type="submit" class="send-btn">
+              <i class="bi bi-send me-2"></i>
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="footer-section">
+
+  <div class="container">
+
+    <div class="footer-wrapper">
+
+
+      <a href="#" class="footer-brand">
+
+        <div class="footer-brand-box">
+          <i class="bi bi-heart-pulse"></i>
+        </div>
+
+        <h3>MediCare</h3>
+
+      </a>
+
+
+      <div class="footer-copy">
+        2026 MediCare Clinic. All rights reserved.
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#">Privacy</a>
+
+        <a href="#">Terms</a>
+
+        <a href="#">Accessibility</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function(){
+
+  if(window.scrollY > 80){
+
+    navbar.classList.remove("navbar-green");
+    navbar.classList.add("navbar-white");
+
+  }else{
+
+    navbar.classList.remove("navbar-white");
+    navbar.classList.add("navbar-green");
+
+  }
+
+});
+
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+  let current = "";
+
+  sections.forEach(section => {
+
+    const sectionTop = section.offsetTop - 150;
+    const sectionHeight = section.clientHeight;
+
+    if(scrollY >= sectionTop){
+
+      current = section.getAttribute("id");
+
+    }
+
+  });
+
+  navLinks.forEach(link => {
+
+    link.classList.remove("active-nav");
+
+    if(link.getAttribute("href") === "#" + current){
+
+      link.classList.add("active-nav");
+
+    }
+
+  });
+
+});
+
+function openDirections(){
+
+  if(navigator.geolocation){
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+      const userLat = position.coords.latitude;
+      const userLng = position.coords.longitude;
+
+
+      const clinicLat = 19.0760;
+      const clinicLng = 72.8777;
+
+      const googleMapsURL =
+      `https://www.google.com/maps/dir/${userLat},${userLng}/${clinicLat},${clinicLng}`;
+
+      window.open(googleMapsURL, "_blank");
+
+    });
+
+  }else{
+
+    alert("Geolocation is not supported.");
+
+  }
+
+}
+
+  </script>
+
+</body>
+</html>
